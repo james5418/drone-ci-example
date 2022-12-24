@@ -1,0 +1,8 @@
+kind: pipeline
+type: docker
+name: demo
+steps:
+  - name: test
+    image: python:3.9
+    commands:
+      - echo hello world
