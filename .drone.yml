@@ -6,3 +6,4 @@ steps:
     image: python:3.9
     commands:
       - echo hello world
+      - echo test
