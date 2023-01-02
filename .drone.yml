@@ -2,8 +2,23 @@ kind: pipeline
 type: docker
 name: demo
 steps:
-  - name: test
-    image: python:3.9
-    commands:
-      - echo hello world
-      - echo test 2
+  - name: deploy_nginx
+    image: appleboy/drone-ssh
+    volumes:
+      - name: ssh_key
+        path: /root/ssh/drone_rsa
+    settings:
+        host:
+            from_secret: host
+        username:
+            from_secret: username
+        key_path: /root/ssh/drone_rsa
+        script:
+          - echo ========== Deploy Nginx with Docker ==========
+          - docker pull nginx
+          - docker run -d -p 3000:80 nginx
+          - docker ps
+volumes:
+  - name: ssh_key
+    host:
+        path: /home/noti/.ssh/noti
