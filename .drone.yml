@@ -3,7 +3,7 @@ type: docker
 name: demo
 steps:
   - name: deploy_nginx
-    image: appleboy/drone-ssh
+    image: appleboy/drone-ssh:linux-amd64
     volumes:
       - name: ssh_key
         path: /root/ssh/drone_rsa
