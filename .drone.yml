@@ -2,7 +2,7 @@ kind: pipeline
 type: docker
 name: demo
 steps:
-  - name: deploy_nginx
+  - name: Deploy Nginx with Docker
     image: appleboy/drone-ssh:linux-amd64
     volumes:
       - name: ssh_key
@@ -14,7 +14,6 @@ steps:
             from_secret: username
         key_path: /root/ssh/drone_rsa
         script:
-          - echo ========== Deploy Nginx with Docker ==========
           - docker pull nginx
           - docker run -d -p 3000:80 nginx
           - docker ps
