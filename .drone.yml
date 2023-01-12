@@ -21,3 +21,8 @@ volumes:
   - name: ssh_key
     host:
         path: /home/noti/.ssh/noti
+trigger:
+    branch:
+      - main
+    event:
+      - push
