@@ -26,3 +26,4 @@ trigger:
       - main
     event:
       - push
+      
